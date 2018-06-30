@@ -5,19 +5,34 @@
  */
 package userInterface;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import tpfinal.Requisicao;
+import tpfinal.Produto;
+
 /**
  *
  * @author Eric
  */
 public class formRequisicao extends javax.swing.JFrame {
-
+    int quantidadeMinima = 100;
+    static Requisicao req = new Requisicao();
     /**
      * Creates new form formRequisicao
      */
-    public formRequisicao() {
+    //public formRequisicao(int codigo, String nome, int quantidade) {
+     public formRequisicao(Produto prod, int quantidade) {
         initComponents();
+        
+        req = new Requisicao(prod, quantidade);
+        
+        textProduto.setText(prod.getDescricao());
+        textCodigo.setText(""+prod.getCodigo());
+        textQuantidade.setText(""+quantidade);
+        textFabricante.setText(prod.getFabricante());
+        textModelo.setText(prod.getModelo());
     }
-
+// create a class User and use it to populate the arraylist
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,6 +65,7 @@ public class formRequisicao extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Controle de Estoque - Supermercados do Tião");
 
         titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -75,24 +91,32 @@ public class formRequisicao extends javax.swing.JFrame {
         labelFabricante.setText("Fabricante:");
         labelFabricante.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        textProduto.setAutoscrolls(false);
+        textProduto.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        textProduto.setEnabled(false);
         textProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textProdutoActionPerformed(evt);
             }
         });
 
+        textQuantidade.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         textQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textQuantidadeActionPerformed(evt);
             }
         });
 
+        textFabricante.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        textFabricante.setEnabled(false);
         textFabricante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFabricanteActionPerformed(evt);
             }
         });
 
+        textCodigo.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        textCodigo.setEnabled(false);
         textCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textCodigoActionPerformed(evt);
@@ -103,6 +127,8 @@ public class formRequisicao extends javax.swing.JFrame {
         labelModelo.setText("Modelo:");
         labelModelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        textModelo.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        textModelo.setEnabled(false);
         textModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textModeloActionPerformed(evt);
@@ -110,6 +136,11 @@ public class formRequisicao extends javax.swing.JFrame {
         });
 
         botEnviaRequis.setText("Enviar Requisição à demais Unidades");
+        botEnviaRequis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botEnviaRequisActionPerformed(evt);
+            }
+        });
 
         botVoltar.setText("Voltar");
         botVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +193,7 @@ public class formRequisicao extends javax.swing.JFrame {
                     .addComponent(labelProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(labelCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textCodigo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -215,6 +246,26 @@ public class formRequisicao extends javax.swing.JFrame {
         volta.setVisible(true);
         dispose();         // TODO add your handling code here:
     }//GEN-LAST:event_botVoltarActionPerformed
+
+    private void botEnviaRequisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEnviaRequisActionPerformed
+
+        JOptionPane.showMessageDialog(null, "Requisição de produto enviada:"+
+	                    "\nDescricao: "+textProduto.getText()+
+	                    "\nCodigo: "+textCodigo.getText()+
+	                    "\nFabricante: "+textFabricante.getText()+
+	                    "\nModelo: "+textModelo.getText()+
+	                    "\nQuantidade: "+textQuantidade.getText());
+        
+        /* INSERIR CODIGO HUGAO */
+//        TelaHugao tela = new TelaHugao(req);
+//        tela.setVisible(true);
+
+        mainMenu main = new mainMenu();
+        main.setVisible(true);
+        dispose();
+        // Isso aqui vai chamar a Tela com todos os dados informados nas caixas
+
+    }//GEN-LAST:event_botEnviaRequisActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

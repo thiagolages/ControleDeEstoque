@@ -5,8 +5,12 @@
  */
 package userInterface;
 
+import java.util.ArrayList;
 import javax.swing.Box;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JRadioButton;
+import javax.swing.table.DefaultTableModel;
+import tpfinal.Produto;
 
 /**
  *
@@ -14,21 +18,88 @@ import javax.swing.JRadioButton;
  */
 public class verificaEstoque extends javax.swing.JFrame {
 
+    static ArrayList<modifProduto> list = new ArrayList<>();
     /**
      * Creates new form verificaEstoque
      */
     public verificaEstoque() {
         initComponents();
-            Box container = Box.createVerticalBox();
+        
+         // use the addRowToJTable
+        addRowToJTable();
+        populateComboBox();
+    }
     
-        javax.swing.JTextField produtosEmFalta[] = new javax.swing.JTextField[2];
-
-        for(int i = 0; i < 2; i++) {
-                produtosEmFalta[i] = new javax.swing.JTextField("Oi");
-                produtosEmFalta[i].setActionCommand(""+i+"");
-                container.add(produtosEmFalta[i]);
+    public class modifProduto{
+//        public int codigo;
+//        public String descricao;
+//        public String modelo;
+//        public String fabricante;
+        public Produto prodz;
+        public int quantidade;
+        
+        public modifProduto(Produto prod,  int quantidade)
+        {
+//            this.codigo = prod.getCodigo();
+//            this.descricao = prod.getDescricao();
+//            this.fabricante = prod.getFabricante();
+//            this.modelo = prod.getModelo();
+            this.prodz  = prod;
+            //vem do BD
+            this.quantidade = quantidade;
         }
-       
+    }
+    
+// create a list of users
+    public ArrayList listaEsgotados()
+    {
+        ArrayList<modifProduto> list = new ArrayList<>();
+        
+//        
+//        APOS IMPLEMENTAR BANCO DE DADOS
+        
+
+        /* SIZE OF PRODUTOS ESGOTADOS*/
+        modifProduto prod[] = new modifProduto[10];
+        for(int i = 0; i < 10; i++){
+            //prod[i]= new Produto(getCodigo, getName, getQuant, getPreco);
+            Produto produtinho = new Produto(i, "Produto "+i, "Modelo "+i, "Fabricante "+i);
+            prod[i] = new modifProduto(produtinho, i*20);
+            list.add(prod[i]);
+        }
+        return list;
+    }
+    
+// added rows from arraylist to jtable
+    public void addRowToJTable()
+    {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        list = listaEsgotados();
+        Object rowData[] = new Object[3];
+        
+        for(int i = 0; i < list.size(); i++)
+        {
+            rowData[0] = list.get(i).prodz.getCodigo();
+            rowData[1] = list.get(i).prodz.getDescricao();
+            rowData[2] = list.get(i).quantidade;
+            model.addRow(rowData);
+        }
+                
+    }
+         
+    public void populateComboBox(){ 
+        
+        ArrayList<modifProduto> list = listaEsgotados();
+        /* SIZE OF PRODUTOS ESGOTADOS*/
+        String[] produtos = new String[10];   
+        
+        /* SIZE OF PRODUTOS ESGOTADOS*/
+        for(int i = 0; i < 10; i++) {
+                produtos[i] = list.get(i).prodz.getDescricao();
+        }       
+        
+        DefaultComboBoxModel md = new DefaultComboBoxModel(produtos);
+        jComboBox1.setModel(md);
     }
 
 
@@ -47,17 +118,16 @@ public class verificaEstoque extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         titulo = new javax.swing.JLabel();
         subtitulo = new javax.swing.JLabel();
-        labelCodigo = new javax.swing.JLabel();
-        labelNome = new javax.swing.JLabel();
-        labelQTEstoque = new javax.swing.JLabel();
-        labelPreço = new javax.swing.JLabel();
         botVolta = new javax.swing.JButton();
-        labelBotoes = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        fazerRequisicao = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Controle de Estoque - Supermercados do Tião");
 
         titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -67,26 +137,6 @@ public class verificaEstoque extends javax.swing.JFrame {
         subtitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         subtitulo.setText("Abaixo encontra-se a lista de produtos que estão em falta:");
 
-        labelCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelCodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCodigo.setText("Código");
-        labelCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        labelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNome.setText("Nome");
-        labelNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        labelQTEstoque.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelQTEstoque.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelQTEstoque.setText("Qt. em Estoque");
-        labelQTEstoque.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        labelPreço.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelPreço.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelPreço.setText("Preço");
-        labelPreço.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         botVolta.setText("Voltar");
         botVolta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,24 +144,32 @@ public class verificaEstoque extends javax.swing.JFrame {
             }
         });
 
-        labelBotoes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelBotoes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelBotoes.setText("Botões Compra");
-        labelBotoes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.setToolTipText("");
+            },
+            new String [] {
+                "Código", "Nome", "Qtd. em Estoque"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 173, Short.MAX_VALUE)
-        );
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        fazerRequisicao.setText("Fazer Requisição");
+        fazerRequisicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fazerRequisicaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,26 +178,17 @@ public class verificaEstoque extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(subtitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+                    .addComponent(titulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botVolta)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelQTEstoque)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelPreço, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 10, Short.MAX_VALUE))
+                        .addComponent(botVolta)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(subtitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(titulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fazerRequisicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,15 +198,12 @@ public class verificaEstoque extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(subtitulo)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelQTEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPreço, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fazerRequisicao))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botVolta)
                 .addContainerGap())
         );
@@ -172,19 +218,31 @@ public class verificaEstoque extends javax.swing.JFrame {
         dispose();  // TODO add your handling code here:
     }//GEN-LAST:event_botVoltaActionPerformed
 
+    private void fazerRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fazerRequisicaoActionPerformed
+        String produto = (String)jComboBox1.getSelectedItem();
+        
+        /* SIZE OF PRODUTOS ESGOTADOS*/
+        for (int i = 0; i < 10; i++){
+            if (produto.equals(list.get(i).prodz.getDescricao())){
+                formRequisicao requis;
+                requis = new formRequisicao(list.get(i).prodz, 100-list.get(i).quantidade);
+                requis.setVisible(true);
+                dispose();
+            }
+        }  
+    }//GEN-LAST:event_fazerRequisicaoActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botVolta;
+    private javax.swing.JButton fazerRequisicao;
     private javax.swing.JButton jButton2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel labelBotoes;
-    private javax.swing.JLabel labelCodigo;
-    private javax.swing.JLabel labelNome;
-    private javax.swing.JLabel labelPreço;
-    private javax.swing.JLabel labelQTEstoque;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel subtitulo;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables

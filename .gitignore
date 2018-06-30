@@ -25,3 +25,5 @@ hs_err_pid*
 
 #propriedades de cada user
 nbproject/private/private.properties
+
+/bin/
