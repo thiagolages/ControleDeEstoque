@@ -6,6 +6,9 @@
 package userInterface;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import tpfinal.Requisicao;
+import tpfinal.Produto;
 
 /**
  *
@@ -13,31 +16,23 @@ import java.util.ArrayList;
  */
 public class formRequisicao extends javax.swing.JFrame {
     int quantidadeMinima = 100;
+    static Requisicao req = new Requisicao();
     /**
      * Creates new form formRequisicao
      */
-    public formRequisicao(int codigo, String nome, int quantidade) {
+    //public formRequisicao(int codigo, String nome, int quantidade) {
+     public formRequisicao(Produto prod, int quantidade) {
         initComponents();
-        Produto produtoEsgotado;
-        produtoEsgotado = new Produto(codigo, nome, quantidade);
-        textProduto.setText(produtoEsgotado.nome);
-        textCodigo.setText(""+produtoEsgotado.codigo);
-        textQuantidade.setText(""+(quantidadeMinima - produtoEsgotado.quantidade));
-        //textFabricante.setText();
+        
+        req = new Requisicao(prod, quantidade);
+        
+        textProduto.setText(prod.getDescricao());
+        textCodigo.setText(""+prod.getCodigo());
+        textQuantidade.setText(""+quantidade);
+        textFabricante.setText(prod.getFabricante());
+        textModelo.setText(prod.getModelo());
     }
 // create a class User and use it to populate the arraylist
-    public class Produto{
-        public int codigo;
-        public String nome;
-        public int quantidade;
-        
-        public Produto(int codigo, String nome, int quantidade)
-        {
-            this.codigo = codigo;
-            this.nome = nome;
-            this.quantidade = quantidade;
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,25 +90,32 @@ public class formRequisicao extends javax.swing.JFrame {
         labelFabricante.setText("Fabricante:");
         labelFabricante.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        textProduto.setText("kkk");
+        textProduto.setAutoscrolls(false);
+        textProduto.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        textProduto.setEnabled(false);
         textProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textProdutoActionPerformed(evt);
             }
         });
 
+        textQuantidade.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         textQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textQuantidadeActionPerformed(evt);
             }
         });
 
+        textFabricante.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        textFabricante.setEnabled(false);
         textFabricante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFabricanteActionPerformed(evt);
             }
         });
 
+        textCodigo.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        textCodigo.setEnabled(false);
         textCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textCodigoActionPerformed(evt);
@@ -124,6 +126,8 @@ public class formRequisicao extends javax.swing.JFrame {
         labelModelo.setText("Modelo:");
         labelModelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        textModelo.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        textModelo.setEnabled(false);
         textModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textModeloActionPerformed(evt);
@@ -131,6 +135,11 @@ public class formRequisicao extends javax.swing.JFrame {
         });
 
         botEnviaRequis.setText("Enviar Requisição à demais Unidades");
+        botEnviaRequis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botEnviaRequisActionPerformed(evt);
+            }
+        });
 
         botVoltar.setText("Voltar");
         botVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -236,6 +245,20 @@ public class formRequisicao extends javax.swing.JFrame {
         volta.setVisible(true);
         dispose();         // TODO add your handling code here:
     }//GEN-LAST:event_botVoltarActionPerformed
+
+    private void botEnviaRequisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEnviaRequisActionPerformed
+        JOptionPane.showMessageDialog(null, "Requisição de produto enviada:"+
+	                    "\nDescricao: "+textProduto.getText()+
+	                    "\nCodigo: "+textCodigo.getText()+
+	                    "\nFabricante: "+textFabricante.getText()+
+	                    "\nModelo: "+textModelo.getText()+
+	                    "\nQuantidade: "+textQuantidade.getText());
+        
+        /* INSERIR CODIGO HUGAO */
+//        TelaHugao tela = new TelaHugao(req);
+//        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botEnviaRequisActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

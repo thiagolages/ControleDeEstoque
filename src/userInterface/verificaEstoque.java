@@ -18,7 +18,7 @@ import tpfinal.Produto;
  */
 public class verificaEstoque extends javax.swing.JFrame {
 
-    static ArrayList<Produto> list = new ArrayList<>();
+    static ArrayList<modifProduto> list = new ArrayList<>();
     /**
      * Creates new form verificaEstoque
      */
@@ -30,15 +30,22 @@ public class verificaEstoque extends javax.swing.JFrame {
         populateComboBox();
     }
     
-    public class Produto{
-        public int codigo;
-        public String nome;
+    public class modifProduto{
+//        public int codigo;
+//        public String descricao;
+//        public String modelo;
+//        public String fabricante;
+        public Produto prodz;
         public int quantidade;
         
-        public Produto(int codigo, String nome, int quantidade)
+        public modifProduto(Produto prod,  int quantidade)
         {
-            this.codigo = codigo;
-            this.nome = nome;
+//            this.codigo = prod.getCodigo();
+//            this.descricao = prod.getDescricao();
+//            this.fabricante = prod.getFabricante();
+//            this.modelo = prod.getModelo();
+            this.prodz  = prod;
+            //vem do BD
             this.quantidade = quantidade;
         }
     }
@@ -46,15 +53,16 @@ public class verificaEstoque extends javax.swing.JFrame {
 // create a list of users
     public ArrayList listaEsgotados()
     {
-        ArrayList<Produto> list = new ArrayList<>();
+        ArrayList<modifProduto> list = new ArrayList<>();
         
 //        
 //        APOS IMPLEMENTAR BANCO DE DADOS
 
-        Produto prod[] = new Produto[5];
+        modifProduto prod[] = new modifProduto[5];
         for(int i = 0; i < 5; i++){
             //prod[i]= new Produto(getCodigo, getName, getQuant, getPreco);
-            prod[i] = new Produto(i, "Produto "+i, i*10);
+            Produto produtinho = new Produto(i, "Produto "+i, "Modelo "+i, "Fabricante "+i);
+            prod[i] = new modifProduto(produtinho, i*20);
             list.add(prod[i]);
         }
         return list;
@@ -69,8 +77,8 @@ public class verificaEstoque extends javax.swing.JFrame {
         
         for(int i = 0; i < list.size(); i++)
         {
-            rowData[0] = list.get(i).codigo;
-            rowData[1] = list.get(i).nome;
+            rowData[0] = list.get(i).prodz.getCodigo();
+            rowData[1] = list.get(i).prodz.getDescricao();
             rowData[2] = list.get(i).quantidade;
             model.addRow(rowData);
         }
@@ -79,10 +87,10 @@ public class verificaEstoque extends javax.swing.JFrame {
          
     public void populateComboBox(){ 
         
-        ArrayList<Produto> list = listaEsgotados();
+        ArrayList<modifProduto> list = listaEsgotados();
         String[] produtos = new String[5];          
         for(int i = 0; i < 5; i++) {
-                produtos[i] = list.get(i).nome;
+                produtos[i] = list.get(i).prodz.getDescricao();
         }       
         
         DefaultComboBoxModel md = new DefaultComboBoxModel(produtos);
@@ -199,10 +207,9 @@ public class verificaEstoque extends javax.swing.JFrame {
     private void fazerRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fazerRequisicaoActionPerformed
         String produto = (String)jComboBox1.getSelectedItem();
         for (int i = 0; i < 5; i++){
-            if (produto.equals(list.get(i).nome)){
-                System.out.println(produto);
+            if (produto.equals(list.get(i).prodz.getDescricao())){
                 formRequisicao requis;
-                requis = new formRequisicao(list.get(i).codigo, list.get(i).nome, list.get(i).quantidade);
+                requis = new formRequisicao(list.get(i).prodz, 100-list.get(i).quantidade);
                 requis.setVisible(true);
                 dispose();
             }

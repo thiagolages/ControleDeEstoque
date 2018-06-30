@@ -180,23 +180,44 @@
     </Component>
     <Component class="javax.swing.JTextField" name="textProduto">
       <Properties>
-        <Property name="text" type="java.lang.String" value="kkk"/>
+        <Property name="autoscrolls" type="boolean" value="false"/>
+        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textProdutoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textQuantidade">
+      <Properties>
+        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textQuantidadeActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textFabricante">
+      <Properties>
+        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFabricanteActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textCodigo">
+      <Properties>
+        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textCodigoActionPerformed"/>
       </Events>
@@ -215,6 +236,12 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textModelo">
+      <Properties>
+        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textModeloActionPerformed"/>
       </Events>
@@ -223,6 +250,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Enviar Requisi&#xe7;&#xe3;o &#xe0; demais Unidades"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botEnviaRequisActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botVoltar">
       <Properties>
