@@ -5,19 +5,39 @@
  */
 package userInterface;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Eric
  */
 public class formRequisicao extends javax.swing.JFrame {
-
+    int quantidadeMinima = 100;
     /**
      * Creates new form formRequisicao
      */
-    public formRequisicao() {
+    public formRequisicao(int codigo, String nome, int quantidade) {
         initComponents();
+        Produto produtoEsgotado;
+        produtoEsgotado = new Produto(codigo, nome, quantidade);
+        textProduto.setText(produtoEsgotado.nome);
+        textCodigo.setText(""+produtoEsgotado.codigo);
+        textQuantidade.setText(""+(quantidadeMinima - produtoEsgotado.quantidade));
+        //textFabricante.setText();
     }
-
+// create a class User and use it to populate the arraylist
+    public class Produto{
+        public int codigo;
+        public String nome;
+        public int quantidade;
+        
+        public Produto(int codigo, String nome, int quantidade)
+        {
+            this.codigo = codigo;
+            this.nome = nome;
+            this.quantidade = quantidade;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,6 +95,7 @@ public class formRequisicao extends javax.swing.JFrame {
         labelFabricante.setText("Fabricante:");
         labelFabricante.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        textProduto.setText("kkk");
         textProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textProdutoActionPerformed(evt);
