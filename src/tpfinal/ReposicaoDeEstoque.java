@@ -4,7 +4,7 @@ package tpfinal;
 //e licitacao
 public class ReposicaoDeEstoque {
     
-    public void verificaMelhorOpcao(Requisicao[] req){
+    public static void verificaMelhorOpcao(Requisicao[] req){
         
         int[] idEstoqueSuficiente = new int[req.length];
         int[] idEstoqueParcial    = new int[req.length];
@@ -44,11 +44,9 @@ public class ReposicaoDeEstoque {
             abreLicitacao(req[0]);
         }
         
-        
-        
     }
 
-    private void analisaTransferenciaCompleta(Requisicao[] suficientes) {
+    private static void analisaTransferenciaCompleta(Requisicao[] suficientes) {
         
         float menorPreco = -1.f;
         int indexMenorPreco = -1;
@@ -63,7 +61,7 @@ public class ReposicaoDeEstoque {
         
     }
 
-    private void analisaTransferenciaParcial(Requisicao[] parciais) {
+    private static void analisaTransferenciaParcial(Requisicao[] parciais) {
         
         float menorPreco = -1.f;
         int indexMenorPreco = -1;
@@ -78,7 +76,7 @@ public class ReposicaoDeEstoque {
         
     }
 
-    private float calculaValorTotal(Requisicao req) {
+    private static float calculaValorTotal(Requisicao req) {
         
         int qtdeProdutos = 0;
         
@@ -91,13 +89,18 @@ public class ReposicaoDeEstoque {
         
     }
 
-    private void abreLicitacao(Requisicao req) {
+    private static void abreLicitacao(Requisicao req) {
        
         
         
     }
 
-    private void fazerTransferenciaParcial(Requisicao parciai) {
+    private static void fazerTransferenciaParcial(Requisicao parciai) {
+        
+    }
+
+    private static void fazerTransferenciaCompleta(Requisicao suficiente) {
+        
         
     }
     

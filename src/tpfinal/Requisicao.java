@@ -4,22 +4,39 @@ public class Requisicao {
 
     private static int proxID = 1;
     private int IDrequisicao;
-    private int codigoProduto, qtdeNecessaria, qtdeDisponivel; //consideranto apenas qtdes inteiras
+    private Produto produto;
+    private int qtdeNecessaria, qtdeDisponivel; //consideranto apenas qtdes inteiras
     private float valorUnitario, valorFrete;
-    private String descricaoProduto, modeloProduto, fabricanteProduto;
     private String dataEmbarque, dataEntrega;
+    private String nomeFornecedor;
+    private String status = "Status ainda não definido";
+
     
     public Requisicao(){
         System.out.println("Requisicao criada");
     }
     
-    public Requisicao(int codigo, String descricao, String modelo, String fabricante, int quantidade){
+    public Requisicao(Produto produto, int quantidade){
         this.IDrequisicao = proxID++;
-        this.codigoProduto = codigo;
-        this.descricaoProduto = descricao;
-        this.modeloProduto = modelo;
-        this.fabricanteProduto = fabricante;
+        this.produto = produto;
         this.qtdeNecessaria = quantidade;
+    }
+        
+    
+    public String getNomeFornecedor() {
+        return nomeFornecedor;
+    }
+
+    public void setNomeFornecedor(String nomeFornecedor) {
+        this.nomeFornecedor = nomeFornecedor;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public static int getProxID() {
@@ -38,13 +55,6 @@ public class Requisicao {
         this.IDrequisicao = IDrequisicao;
     }
 
-    public int getCodigoProduto() {
-        return codigoProduto;
-    }
-
-    public void setCodigoProduto(int codigoProduto) {
-        this.codigoProduto = codigoProduto;
-    }
 
     public int getQtdeNecessaria() {
         return qtdeNecessaria;
@@ -76,30 +86,6 @@ public class Requisicao {
 
     public void setValorFrete(float valorFrete) {
         this.valorFrete = valorFrete;
-    }
-
-    public String getDescricaoProduto() {
-        return descricaoProduto;
-    }
-
-    public void setDescricaoProduto(String descricaoProduto) {
-        this.descricaoProduto = descricaoProduto;
-    }
-
-    public String getModeloProduto() {
-        return modeloProduto;
-    }
-
-    public void setModeloProduto(String modeloProduto) {
-        this.modeloProduto = modeloProduto;
-    }
-
-    public String getFabricanteProduto() {
-        return fabricanteProduto;
-    }
-
-    public void setFabricanteProduto(String fabricanteProduto) {
-        this.fabricanteProduto = fabricanteProduto;
     }
 
     public String getDataEmbarque() {
