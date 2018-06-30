@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Estoque {
     String responsavel;
-    static List<ControleDeEstoque> efstoque  = new ArrayList<ControleDeEstoque> ();
+    static List<ControleDeEstoque> estoque  = new ArrayList<ControleDeEstoque> ();
     public Estoque(){
         
     }
