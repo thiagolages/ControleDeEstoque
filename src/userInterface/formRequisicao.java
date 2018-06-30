@@ -110,6 +110,11 @@ public class formRequisicao extends javax.swing.JFrame {
         });
 
         botEnviaRequis.setText("Enviar Requisição à demais Unidades");
+        botEnviaRequis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botEnviaRequisActionPerformed(evt);
+            }
+        });
 
         botVoltar.setText("Voltar");
         botVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -158,11 +163,11 @@ public class formRequisicao extends javax.swing.JFrame {
                 .addComponent(subtitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(textProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)
                     .addComponent(labelProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(labelCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textCodigo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -215,6 +220,11 @@ public class formRequisicao extends javax.swing.JFrame {
         volta.setVisible(true);
         dispose();         // TODO add your handling code here:
     }//GEN-LAST:event_botVoltarActionPerformed
+
+    private void botEnviaRequisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEnviaRequisActionPerformed
+        // Isso aqui vai chamar a Tela com todos os dados informados nas caixas
+        
+    }//GEN-LAST:event_botEnviaRequisActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -80,7 +80,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="labelCodigo" pref="24" max="32767" attributes="0"/>
+                  <Component id="labelCodigo" max="32767" attributes="0"/>
                   <Component id="textCodigo" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -220,6 +220,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Enviar Requisi&#xe7;&#xe3;o &#xe0; demais Unidades"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botEnviaRequisActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botVoltar">
       <Properties>
