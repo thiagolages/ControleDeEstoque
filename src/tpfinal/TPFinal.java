@@ -7,6 +7,8 @@ public class TPFinal {
     public static void main(String[] args) {
         // TODO code application logic here
         new mainMenu();
+        new Unidade(2);
+        Database.connectDatabase();
         Requisicao[] req;
         req = new Requisicao[3];
         req[0] = new Requisicao();

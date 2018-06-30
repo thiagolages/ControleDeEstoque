@@ -188,11 +188,11 @@ public class formRequisicao extends javax.swing.JFrame {
                 .addComponent(subtitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(textProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)
                     .addComponent(labelProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(labelCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textCodigo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -247,6 +247,7 @@ public class formRequisicao extends javax.swing.JFrame {
     }//GEN-LAST:event_botVoltarActionPerformed
 
     private void botEnviaRequisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEnviaRequisActionPerformed
+<<<<<<< HEAD
         JOptionPane.showMessageDialog(null, "Requisição de produto enviada:"+
 	                    "\nDescricao: "+textProduto.getText()+
 	                    "\nCodigo: "+textCodigo.getText()+
@@ -258,6 +259,10 @@ public class formRequisicao extends javax.swing.JFrame {
 //        TelaHugao tela = new TelaHugao(req);
 //        tela.setVisible(true);
         dispose();
+=======
+        // Isso aqui vai chamar a Tela com todos os dados informados nas caixas
+        
+>>>>>>> 7352a1ee2dd3fd43efdb26907e73ad9d9335456e
     }//GEN-LAST:event_botEnviaRequisActionPerformed
 
 
