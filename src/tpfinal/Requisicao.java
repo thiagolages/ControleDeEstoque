@@ -1,5 +1,7 @@
 package tpfinal;
 
+import java.util.Date;
+
 public class Requisicao {
 
     private static int proxID = 1;
@@ -7,7 +9,7 @@ public class Requisicao {
     private Produto produto;
     private int qtdeNecessaria, qtdeDisponivel; //consideranto apenas qtdes inteiras
     private float valorUnitario, valorFrete;
-    private String dataEmbarque, dataEntrega;
+    private Date dataEmbarque, dataEntrega;
     private String nomeFornecedor;
     private String status = "Status ainda não definido";
 
@@ -21,7 +23,14 @@ public class Requisicao {
         this.produto = produto;
         this.qtdeNecessaria = quantidade;
     }
-        
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
     
     public String getNomeFornecedor() {
         return nomeFornecedor;
@@ -88,19 +97,19 @@ public class Requisicao {
         this.valorFrete = valorFrete;
     }
 
-    public String getDataEmbarque() {
+    public Date getDataEmbarque() {
         return dataEmbarque;
     }
 
-    public void setDataEmbarque(String dataEmbarque) {
+    public void setDataEmbarque(Date dataEmbarque) {
         this.dataEmbarque = dataEmbarque;
     }
 
-    public String getDataEntrega() {
+    public Date getDataEntrega() {
         return dataEntrega;
     }
 
-    public void setDataEntrega(String dataEntrega) {
+    public void setDataEntrega(Date dataEntrega) {
         this.dataEntrega = dataEntrega;
     }
            

@@ -23,6 +23,7 @@ public class ReposicaoDeEstoque {
         
         if (idEstoqueSuficiente.length > 0){
             //transferencia
+            //obtem fornecedores com estoque suficiente
             Requisicao[] suficientes = new Requisicao[idEstoqueSuficiente.length];
             for (int i=0 ; i<idEstoqueSuficiente.length; i++){
                 suficientes[i] = req[ idEstoqueSuficiente[i] ];
@@ -31,6 +32,7 @@ public class ReposicaoDeEstoque {
             
         }else if (idEstoqueParcial.length > 0){
             //transferencia parcial + licitacao
+            //obtem fornecedores com estoque parcial
             Requisicao[] parciais = new Requisicao[idEstoqueParcial.length];
             for (int i=0 ; i<idEstoqueParcial.length; i++){
                 parciais[i] = req[ idEstoqueParcial[i] ];
@@ -90,17 +92,25 @@ public class ReposicaoDeEstoque {
     }
 
     private static void abreLicitacao(Requisicao req) {
-       
+       //Lucas
+       //Lembrar de pegar o nome do produto a partir da requisicao, e quantidadeNecessaria
         
         
     }
 
-    private static void fazerTransferenciaParcial(Requisicao parciai) {
+    private static void fazerTransferenciaParcial(Requisicao reqParcial) {
+        //Hugo
+        //criar tela para exibir botoes de aceitar/recusar para vendedor?
+        int qtdeFaltante = reqParcial.getQtdeNecessaria() - reqParcial.getQtdeDisponivel();
+        reqParcial.setQtdeNecessaria(qtdeFaltante);
+        abreLicitacao(reqParcial);
         
     }
 
-    private static void fazerTransferenciaCompleta(Requisicao suficiente) {
-        
+    private static void fazerTransferenciaCompleta(Requisicao reqFinal) {
+        //Thiago
+        reqFinal.setStatus("Transferência Solicitada.");
+        //criar tela para exibir botoes de aceitar/recusar para vendedor?
         
     }
     

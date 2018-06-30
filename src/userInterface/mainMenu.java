@@ -40,7 +40,6 @@ public class mainMenu extends javax.swing.JFrame {
         setTitle("Controle de Estoque - Supermercados do Tião");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(500, 200));
-        setPreferredSize(new java.awt.Dimension(500, 220));
         setResizable(false);
 
         titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
