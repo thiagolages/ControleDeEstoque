@@ -57,9 +57,11 @@ public class verificaEstoque extends javax.swing.JFrame {
         
 //        
 //        APOS IMPLEMENTAR BANCO DE DADOS
+        
 
-        modifProduto prod[] = new modifProduto[5];
-        for(int i = 0; i < 5; i++){
+        /* SIZE OF PRODUTOS ESGOTADOS*/
+        modifProduto prod[] = new modifProduto[10];
+        for(int i = 0; i < 10; i++){
             //prod[i]= new Produto(getCodigo, getName, getQuant, getPreco);
             Produto produtinho = new Produto(i, "Produto "+i, "Modelo "+i, "Fabricante "+i);
             prod[i] = new modifProduto(produtinho, i*20);
@@ -88,8 +90,11 @@ public class verificaEstoque extends javax.swing.JFrame {
     public void populateComboBox(){ 
         
         ArrayList<modifProduto> list = listaEsgotados();
-        String[] produtos = new String[5];          
-        for(int i = 0; i < 5; i++) {
+        /* SIZE OF PRODUTOS ESGOTADOS*/
+        String[] produtos = new String[10];   
+        
+        /* SIZE OF PRODUTOS ESGOTADOS*/
+        for(int i = 0; i < 10; i++) {
                 produtos[i] = list.get(i).prodz.getDescricao();
         }       
         
@@ -122,6 +127,7 @@ public class verificaEstoque extends javax.swing.JFrame {
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Controle de Estoque - Supermercados do Tião");
 
         titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -145,7 +151,15 @@ public class verificaEstoque extends javax.swing.JFrame {
             new String [] {
                 "Código", "Nome", "Qtd. em Estoque"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -206,7 +220,9 @@ public class verificaEstoque extends javax.swing.JFrame {
 
     private void fazerRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fazerRequisicaoActionPerformed
         String produto = (String)jComboBox1.getSelectedItem();
-        for (int i = 0; i < 5; i++){
+        
+        /* SIZE OF PRODUTOS ESGOTADOS*/
+        for (int i = 0; i < 10; i++){
             if (produto.equals(list.get(i).prodz.getDescricao())){
                 formRequisicao requis;
                 requis = new formRequisicao(list.get(i).prodz, 100-list.get(i).quantidade);
