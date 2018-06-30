@@ -30,8 +30,8 @@ public class mainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
+        subtitulo = new javax.swing.JLabel();
         botSimulaVendas = new javax.swing.JButton();
         botPesquisaProduto = new javax.swing.JButton();
         botVerificaEstoque = new javax.swing.JButton();
@@ -43,11 +43,11 @@ public class mainMenu extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(500, 220));
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Bem-vindo ao Controle de Estoque! ");
+        titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        titulo.setText("Bem-vindo ao Controle de Estoque! ");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Supermercados do Tião, sua melhor opção!");
+        subtitulo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        subtitulo.setText("Supermercados do Tião, sua melhor opção!");
 
         botSimulaVendas.setText("Simular Vendas/mês");
         botSimulaVendas.addActionListener(new java.awt.event.ActionListener() {
@@ -81,21 +81,21 @@ public class mainMenu extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(botSimulaVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botPesquisaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botVerificaEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(109, 109, 109)
-                        .addComponent(jLabel2)))
+                        .addComponent(subtitulo)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(titulo)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(subtitulo)
                 .addGap(17, 17, 17)
                 .addComponent(botPesquisaProduto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -119,14 +119,16 @@ public class mainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_botPesquisaProdutoActionPerformed
 
     private void botVerificaEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botVerificaEstoqueActionPerformed
-        // TODO add your handling code here:
+        verificaEstoque verif = new verificaEstoque();
+        verif.setVisible(true);
+        dispose();
     }//GEN-LAST:event_botVerificaEstoqueActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botPesquisaProduto;
     private javax.swing.JButton botSimulaVendas;
     private javax.swing.JButton botVerificaEstoque;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel subtitulo;
+    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }
