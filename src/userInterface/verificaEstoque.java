@@ -31,19 +31,11 @@ public class verificaEstoque extends javax.swing.JFrame {
     }
     
     public class modifProduto{
-//        public int codigo;
-//        public String descricao;
-//        public String modelo;
-//        public String fabricante;
         public Produto prodz;
         public int quantidade;
         
         public modifProduto(Produto prod,  int quantidade)
         {
-//            this.codigo = prod.getCodigo();
-//            this.descricao = prod.getDescricao();
-//            this.fabricante = prod.getFabricante();
-//            this.modelo = prod.getModelo();
             this.prodz  = prod;
             //vem do BD
             this.quantidade = quantidade;
@@ -62,6 +54,7 @@ public class verificaEstoque extends javax.swing.JFrame {
         /* SIZE OF PRODUTOS ESGOTADOS*/
         modifProduto prod[] = new modifProduto[10];
         for(int i = 0; i < 10; i++){
+            
             //prod[i]= new Produto(getCodigo, getName, getQuant, getPreco);
             Produto produtinho = new Produto(i, "Produto "+i, "Modelo "+i, "Fabricante "+i);
             prod[i] = new modifProduto(produtinho, i*20);
@@ -200,7 +193,7 @@ public class verificaEstoque extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fazerRequisicao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

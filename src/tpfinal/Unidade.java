@@ -16,6 +16,7 @@ public class Unidade {
      this.nome = nome;
      this.endereco = endereco;
      this.coord_end = coord_end;
+     
  }   
 
  
