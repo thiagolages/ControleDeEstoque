@@ -33,7 +33,11 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                                       <Component id="freteTF" min="-2" pref="65" max="-2" attributes="0"/>
+=======
+                                      <Component id="frete" min="-2" pref="65" max="-2" attributes="0"/>
+>>>>>>> b646a11fb55f46cb4acaad38ac76e2b838a07ee8
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -99,7 +103,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="freteTF" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+                  <Component id="frete" alignment="3" min="-2" max="-2" attributes="0"/>
+>>>>>>> b646a11fb55f46cb4acaad38ac76e2b838a07ee8
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -190,9 +198,15 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entregaActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JTextField" name="freteTF">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="freteTFActionPerformed"/>
+=======
+    <Component class="javax.swing.JTextField" name="frete">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="freteActionPerformed"/>
+>>>>>>> b646a11fb55f46cb4acaad38ac76e2b838a07ee8
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="confirma">
