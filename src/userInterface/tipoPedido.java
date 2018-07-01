@@ -35,15 +35,11 @@ public class tipoPedido extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         unidade = new javax.swing.JButton();
-        fornecedor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Escolha o tipo de pedido que deseja fazer");
-
-        unidade.setText("Solicitar de outra unidade");
+        unidade.setText("Solicitar de um fornecedor");
         unidade.setActionCommand("unidade");
         unidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,30 +47,21 @@ public class tipoPedido extends javax.swing.JFrame {
             }
         });
 
-        fornecedor.setText("Solicitar de um fornecedor");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(unidade)
-                    .addComponent(fornecedor))
-                .addContainerGap(103, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(107, Short.MAX_VALUE)
+                .addComponent(unidade)
+                .addGap(97, 97, 97))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(44, 44, 44)
+                .addGap(124, 124, 124)
                 .addComponent(unidade)
-                .addGap(34, 34, 34)
-                .addComponent(fornecedor)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,8 +107,6 @@ public class tipoPedido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton fornecedor;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton unidade;
     // End of variables declaration//GEN-END:variables
 }

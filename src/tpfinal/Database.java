@@ -41,7 +41,7 @@ public class Database {
 		}
 		catch (SQLException ex) 
 		{
-			System.out.print("Erro de conexão com o banco de dados");
+			System.out.print("Erro de conexao com o banco de dados");
 		}
 		
 	}

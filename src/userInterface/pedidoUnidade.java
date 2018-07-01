@@ -5,6 +5,7 @@
  */
 package userInterface;
 
+import javax.swing.JOptionPane;
 import tpfinal.Requisicao;
 
 /**
@@ -24,9 +25,19 @@ public class pedidoUnidade extends javax.swing.JFrame {
         initComponents();
         this.requisicao = requisicao;
         this.requisicaoAux = requisicao;
-        this.Unidade = unidade;
-        this.Produto = requisicaoAux.getProduto() ;
+        this.Unidade = unidade; //Descricao eh o nome do produto?
+        this.Produto =  requisicaoAux.getProduto().getDescricao() ;
         this.QuantidadeSolicitada = requisicaoAux.getQtdeNecessaria();
+        
+        JOptionPane.showMessageDialog(null, "Requisição de produto enviada:"+
+	                    "\nDescricao: "+requisicao.getProduto().getDescricao()+
+	                    
+	                    "\nFabricante: "+requisicao.getProduto().getFabricante()+
+	                    "\nModelo: "+requisicao.getProduto().getModelo()+
+	                    "\nQuantidade: "+requisicao.getQtdeNecessaria());
+        
+        
+        
     }
 
     /**
@@ -217,25 +228,27 @@ public class pedidoUnidade extends javax.swing.JFrame {
         requisicaoAux.setQtdeDisponivel(QuantidadeEnviada);
         requisicaoAux.setValorUnitario(Valor);
         requisicaoAux.setValorFrete(Frete);
-        requisicaoAux.setDataEmbarque(Embarque);
-        requisicaoAux.setDataEntrega(Entrega);
+        //requisicaoAux.setDataEmbarque(Embarque);
+        //requisicaoAux.setDataEntrega(Entrega);
         
         if(Unidade.equals("Unidade A")){
             
             // Chamo o construtor da nova unidade com a variavel requisicao
-            new UnidadeB().setVisible(true);//Tenho que inicializar com outro construtor
+        //    new UnidadeB().setVisible(true);//Tenho que inicializar com outro construtor
             this.setVisible(false);
         }
         if(Unidade.equals("Unidade B")){ //Tenho que inicializar com outro construtor
             
             // Chamo o construtor da nova unidade com a variavel requisicao
-            new UnidadeC().setVisible(true);
+        //    new UnidadeC().setVisible(true);
             this.setVisible(false);
         }
         
         if(Unidade.equals("Unidade C")){ //Tenho que inicializar com outro construtor
-            new tipoPedido().setVisible(true);
+            //new tipoPedido().setVisible(true);
             this.setVisible(false);
+            //add
+           // compara
         }
     }//GEN-LAST:event_confirmaActionPerformed
 

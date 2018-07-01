@@ -10,9 +10,6 @@
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[500, 200]"/>
     </Property>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[500, 220]"/>
-    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -38,13 +35,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="botSimulaVendas" alignment="0" min="-2" pref="428" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="titulo" max="32767" attributes="0"/>
-                              <Component id="botPesquisaProduto" max="32767" attributes="0"/>
-                              <Component id="botVerificaEstoque" max="32767" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="titulo" max="32767" attributes="0"/>
+                          <Component id="botPesquisaProduto" max="32767" attributes="0"/>
+                          <Component id="botVerificaEstoque" max="32767" attributes="0"/>
+                          <Component id="botSimulaVendas" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
