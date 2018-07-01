@@ -255,13 +255,14 @@ public class formRequisicao extends javax.swing.JFrame {
 
     private void botEnviaRequisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEnviaRequisActionPerformed
 
+        /*
         JOptionPane.showMessageDialog(null, "Requisição de produto enviada:"+
 	                    "\nDescricao: "+textProduto.getText()+
 	                    "\nCodigo: "+textCodigo.getText()+
 	                    "\nFabricante: "+textFabricante.getText()+
 	                    "\nModelo: "+textModelo.getText()+
 	                    "\nQuantidade: "+textQuantidade.getText());
-        
+        */
         // Vou mandar um tipo requisicao para a tela TipoPedido
  
         
