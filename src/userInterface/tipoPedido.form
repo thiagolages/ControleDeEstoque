@@ -23,50 +23,32 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="unidade" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="fornecedor" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="103" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="107" max="32767" attributes="0"/>
+              <Component id="unidade" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
               <Component id="unidade" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Component id="fornecedor" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="135" max="32767" attributes="0"/>
+              <EmptySpace pref="147" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Escolha o tipo de pedido que deseja fazer"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="unidade">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Solicitar de outra unidade"/>
+        <Property name="text" type="java.lang.String" value="Solicitar de um fornecedor"/>
         <Property name="actionCommand" type="java.lang.String" value="unidade"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="unidadeActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="fornecedor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Solicitar de um fornecedor"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

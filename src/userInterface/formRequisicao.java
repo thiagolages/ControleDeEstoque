@@ -16,11 +16,16 @@ import tpfinal.Produto;
  */
 public class formRequisicao extends javax.swing.JFrame {
     int quantidadeMinima = 100;
-    static Requisicao req = new Requisicao();
+    Requisicao req = new Requisicao();
     /**
      * Creates new form formRequisicao
      */
     //public formRequisicao(int codigo, String nome, int quantidade) {
+     public formRequisicao() {
+        initComponents();
+     }
+    
+    
      public formRequisicao(Produto prod, int quantidade) {
         initComponents();
         
@@ -256,14 +261,13 @@ public class formRequisicao extends javax.swing.JFrame {
 	                    "\nModelo: "+textModelo.getText()+
 	                    "\nQuantidade: "+textQuantidade.getText());
         
-        /* INSERIR CODIGO HUGAO */
-//        TelaHugao tela = new TelaHugao(req);
-//        tela.setVisible(true);
-
-        mainMenu main = new mainMenu();
-        main.setVisible(true);
-        dispose();
-        // Isso aqui vai chamar a Tela com todos os dados informados nas caixas
+        // Vou mandar um tipo requisicao para a tela TipoPedido
+ 
+        
+        // fazer o construtor de req
+        pedidoUnidade tela = new pedidoUnidade("Unidade A", req);
+        tela.setVisible(true);
+        this.setVisible(false);
 
     }//GEN-LAST:event_botEnviaRequisActionPerformed
 
