@@ -9,11 +9,5 @@ public class TPFinal {
         new mainMenu();
         new Unidade(2);
         Database.connectDatabase();
-        Requisicao[] req;
-        req = new Requisicao[3];
-        req[0] = new Requisicao();
-        req[1] = new Requisicao();
-        req[2] = new Requisicao();
-        System.out.println(req.length);
     }    
 }

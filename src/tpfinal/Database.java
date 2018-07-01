@@ -16,9 +16,11 @@ public class Database {
 	
 	public static ResultSet query(String query) throws SQLException
 	{
+
 		  Statement stmt = Database.conn.createStatement();
 		  stmt.executeQuery("USE `sql10245207`");
 		  return stmt.executeQuery(query);
+
 	}
 	
 	private Database()

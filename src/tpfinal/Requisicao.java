@@ -9,13 +9,14 @@ public class Requisicao {
     private static int proxID = 1;
     private int IDrequisicao;
     private Produto produto;
-    private int qtdeNecessaria, qtdeDisponivel; //consideranto apenas qtdes inteiras
+    private int qtdeNecessaria;
+    private int qtdeDisponivel; //consideranto apenas qtdes inteiras
     private float valorUnitario, valorFrete;
     private Date dataEmbarque, dataEntrega;
     private String nomeFornecedor;
     private String status = "Status ainda não definido";
 
-    private ArrayList<Requisicao> listaDeRequisicoes;
+    private static ArrayList<Requisicao> listaDeRequisicoes;
     
     public Requisicao(){
         System.out.println("Requisicao criada");
@@ -32,20 +33,25 @@ public class Requisicao {
         return listaDeRequisicoes;
     }
 
-    public void addRequisicao(Requisicao req) {
-        this.listaDeRequisicoes.add(req);
+    public static void addRequisicao(Requisicao req) {
+        System.out.println("Recebendo requisicao "+req.getNomeFornecedor());
+        Requisicao.listaDeRequisicoes.add(req);
     }
     
-    public void comparaRequisicoes(){
+    public static void comparaRequisicoes(){
         
         Requisicao[] arrayRequisicoes = new Requisicao[listaDeRequisicoes.size()];
         Iterator it = listaDeRequisicoes.iterator();
-        int i = 0;
         
-        while (it.hasNext()){
-            arrayRequisicoes[i] = (Requisicao) it.next();
-            i++;
+        System.out.println(listaDeRequisicoes.get(0).getNomeFornecedor());
+        System.out.println(listaDeRequisicoes.get(1).getNomeFornecedor());
+        
+        System.out.println("size = " +listaDeRequisicoes.size());
+        for (int i = 0; i < listaDeRequisicoes.size(); i++){
+            arrayRequisicoes[i] = listaDeRequisicoes.get(i);
         }
+        
+        listaDeRequisicoes.clear();
         ReposicaoDeEstoque.verificaMelhorOpcao(arrayRequisicoes);
     }
     
@@ -94,9 +100,10 @@ public class Requisicao {
         return qtdeNecessaria;
     }
 
-    public void setQtdeNecessaria(int qtdeNecessaria) {
-        this.qtdeNecessaria = qtdeNecessaria;
-    }
+    //Nao vai existir, pois uma vez setado (no construtor) nao pode ser alterado
+    //public void setQtdeNecessaria(int qtdeNecessaria) {
+    //    this.qtdeNecessaria = qtdeNecessaria;
+    //}
 
     public int getQtdeDisponivel() {
         return qtdeDisponivel;
@@ -137,7 +144,5 @@ public class Requisicao {
     public void setDataEntrega(Date dataEntrega) {
         this.dataEntrega = dataEntrega;
     }
-           
-    
-    
+        
 }
