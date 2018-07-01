@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package userInterface;
 
 import java.text.ParseException;
@@ -32,6 +31,7 @@ public class pedidoUnidade extends javax.swing.JFrame {
         this.nomeFornecedor = requisicao.getNomeFornecedor();
     }
 
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -50,7 +50,6 @@ public class pedidoUnidade extends javax.swing.JFrame {
         embarque = new javax.swing.JTextField();
         entrega = new javax.swing.JTextField();
         freteTF = new javax.swing.JTextField();
-
         confirma = new javax.swing.JButton();
         encerra = new javax.swing.JButton();
 
