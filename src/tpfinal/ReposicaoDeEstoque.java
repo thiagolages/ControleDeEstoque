@@ -4,6 +4,8 @@ package tpfinal;
 //e licitacao
 public class ReposicaoDeEstoque {
     
+    
+    
     public static void verificaMelhorOpcao(Requisicao[] req){
         
         int[] idEstoqueSuficiente = new int[req.length];
@@ -11,6 +13,7 @@ public class ReposicaoDeEstoque {
         int indexS = 0, indexP = 0; //suficiente e parcial
         
         //armazena os IDs dos requerimentos que possuem estoque suficiente
+        //e dos que possuem estoque parcial
         for (int i=0; i < req.length; i++){
             if (req[i].getQtdeDisponivel() >= req[i].getQtdeNecessaria()){
                 idEstoqueSuficiente[indexS] = req[i].getIDrequisicao();
@@ -21,6 +24,8 @@ public class ReposicaoDeEstoque {
             }
         }
         
+        //verificar qual melhor opcao de pedido
+        
         if (idEstoqueSuficiente.length > 0){
             //transferencia
             //obtem fornecedores com estoque suficiente
@@ -28,6 +33,7 @@ public class ReposicaoDeEstoque {
             for (int i=0 ; i<idEstoqueSuficiente.length; i++){
                 suficientes[i] = req[ idEstoqueSuficiente[i] ];
             }
+            
             analisaTransferenciaCompleta(suficientes);
             
         }else if (idEstoqueParcial.length > 0){
@@ -37,12 +43,13 @@ public class ReposicaoDeEstoque {
             for (int i=0 ; i<idEstoqueParcial.length; i++){
                 parciais[i] = req[ idEstoqueParcial[i] ];
             }
+            
             analisaTransferenciaParcial(parciais);
         }
         else{
             //licitacao
-            //enviar uma requisicao qualquer, apenas para pegar dados de numero de produtos 
-            //necessarios
+            //enviar uma requisicao qualquer, apenas para pegar dados de numero 
+            //de produtos necessarios
             abreLicitacao(req[0]);
         }
         
@@ -98,6 +105,15 @@ public class ReposicaoDeEstoque {
         
     }
 
+    private static void fazerTransferenciaCompleta(Requisicao reqFinal) {
+        //Thiago
+        reqFinal.setStatus("Transferência Solicitada.");
+        //criar tela para exibir botoes de aceitar/recusar para vendedor?
+        new statusPedido(reqFinal.getStatus());
+        
+    }
+    
+    
     private static void fazerTransferenciaParcial(Requisicao reqParcial) {
         //Hugo
         //criar tela para exibir botoes de aceitar/recusar para vendedor?
@@ -107,11 +123,6 @@ public class ReposicaoDeEstoque {
         
     }
 
-    private static void fazerTransferenciaCompleta(Requisicao reqFinal) {
-        //Thiago
-        reqFinal.setStatus("Transferência Solicitada.");
-        //criar tela para exibir botoes de aceitar/recusar para vendedor?
-        
-    }
+    
     
 }

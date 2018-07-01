@@ -24,7 +24,7 @@ public class verificaEstoque extends javax.swing.JFrame {
      */
     public verificaEstoque() {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
          // use the addRowToJTable
         addRowToJTable();
         populateComboBox();

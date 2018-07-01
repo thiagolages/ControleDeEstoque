@@ -1,6 +1,8 @@
 package tpfinal;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 public class Requisicao {
 
@@ -13,6 +15,7 @@ public class Requisicao {
     private String nomeFornecedor;
     private String status = "Status ainda não definido";
 
+    private ArrayList<Requisicao> listaDeRequisicoes;
     
     public Requisicao(){
         System.out.println("Requisicao criada");
@@ -22,8 +25,30 @@ public class Requisicao {
         this.IDrequisicao = proxID++;
         this.produto = produto;
         this.qtdeNecessaria = quantidade;
+        listaDeRequisicoes = new ArrayList<>();
     }
 
+    public ArrayList<Requisicao> getListaDeRequisicoes() {
+        return listaDeRequisicoes;
+    }
+
+    public void addRequisicao(Requisicao req) {
+        this.listaDeRequisicoes.add(req);
+    }
+    
+    public void comparaRequisicoes(){
+        
+        Requisicao[] arrayRequisicoes = new Requisicao[listaDeRequisicoes.size()];
+        Iterator it = listaDeRequisicoes.iterator();
+        int i = 0;
+        
+        while (it.hasNext()){
+            arrayRequisicoes[i] = (Requisicao) it.next();
+            i++;
+        }
+        ReposicaoDeEstoque.verificaMelhorOpcao(arrayRequisicoes);
+    }
+    
     public Produto getProduto() {
         return produto;
     }

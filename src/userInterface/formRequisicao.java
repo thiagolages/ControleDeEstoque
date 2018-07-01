@@ -23,6 +23,7 @@ public class formRequisicao extends javax.swing.JFrame {
     //public formRequisicao(int codigo, String nome, int quantidade) {
      public formRequisicao(Produto prod, int quantidade) {
         initComponents();
+        this.setLocationRelativeTo(null);
         
         req = new Requisicao(prod, quantidade);
         

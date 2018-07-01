@@ -6,6 +6,7 @@ public class Unidade {
     private String nome;
     private String endereco;
     private int id;
+    private int coord_end;
     
     
 

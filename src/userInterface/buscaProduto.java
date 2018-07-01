@@ -16,6 +16,7 @@ public class buscaProduto extends javax.swing.JFrame {
      */
     public buscaProduto() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
