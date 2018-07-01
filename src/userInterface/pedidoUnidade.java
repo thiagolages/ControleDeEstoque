@@ -241,13 +241,14 @@ public class pedidoUnidade extends javax.swing.JFrame {
         if(Unidade.equals("Unidade A")){
             
             // Chamo o construtor da nova unidade com a variavel requisicao
-            
+            Requisicao.addRequisicao(requisicaoAux);
             new pedidoUnidade("Unidade B", requisicao).setVisible(true);//Tenho que inicializar com outro construtor
             this.setVisible(false);
             
         }
         if(Unidade.equals("Unidade B")){ //Tenho que inicializar com outro construtor
             
+            Requisicao.addRequisicao(requisicaoAux);
             new pedidoUnidade("Unidade C", requisicao).setVisible(true);//Tenho que inicializar com outro construtor
             this.setVisible(false);
             this.setVisible(false);
@@ -255,9 +256,10 @@ public class pedidoUnidade extends javax.swing.JFrame {
         
         if(Unidade.equals("Unidade C")){ //Tenho que inicializar com outro construtor
             
+            Requisicao.addRequisicao(requisicaoAux);
+            Requisicao.comparaRequisicoes();
             this.setVisible(false);
-            //add
-           // compara
+            
         }
     }//GEN-LAST:event_confirmaActionPerformed
 
@@ -279,7 +281,10 @@ public class pedidoUnidade extends javax.swing.JFrame {
     }//GEN-LAST:event_entregaActionPerformed
 
     private void encerraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encerraActionPerformed
-        // TODO add your handling code here:
+
+        Requisicao.addRequisicao(requisicaoAux);
+        Requisicao.comparaRequisicoes();
+        this.setVisible(false);
     }//GEN-LAST:event_encerraActionPerformed
 
     /**

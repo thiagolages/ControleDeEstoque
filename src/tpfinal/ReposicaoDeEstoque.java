@@ -109,7 +109,7 @@ public class ReposicaoDeEstoque {
         //Thiago
         reqFinal.setStatus("Transferência Solicitada.");
         //criar tela para exibir botoes de aceitar/recusar para vendedor?
-        new statusPedido(reqFinal.getStatus());
+        //new statusPedido(reqFinal.getStatus());
         
     }
     

@@ -15,7 +15,7 @@ public class Requisicao {
     private String nomeFornecedor;
     private String status = "Status ainda não definido";
 
-    private ArrayList<Requisicao> listaDeRequisicoes;
+    private static ArrayList<Requisicao> listaDeRequisicoes;
     
     public Requisicao(){
         System.out.println("Requisicao criada");
@@ -32,11 +32,11 @@ public class Requisicao {
         return listaDeRequisicoes;
     }
 
-    public void addRequisicao(Requisicao req) {
-        this.listaDeRequisicoes.add(req);
+    public static void addRequisicao(Requisicao req) {
+        Requisicao.listaDeRequisicoes.add(req);
     }
     
-    public void comparaRequisicoes(){
+    public static void comparaRequisicoes(){
         
         Requisicao[] arrayRequisicoes = new Requisicao[listaDeRequisicoes.size()];
         Iterator it = listaDeRequisicoes.iterator();
