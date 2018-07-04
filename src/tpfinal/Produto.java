@@ -11,6 +11,8 @@ public class Produto {
         this.modelo = modelo;
         this.fabricante = fabricante;
     }
+    
+    
         
     public int getCodigo() {
         return codigo;

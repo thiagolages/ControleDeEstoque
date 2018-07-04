@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.sql.ResultSet;
 
 public class Database {
@@ -66,5 +67,13 @@ public class Database {
 		else
 			return Database.getConn();
 	}
+
+	public static void update(String str) throws SQLException
+	{
+		  Statement stmt = Database.conn.createStatement();
+		  stmt.executeQuery("USE `sql10245207`");
+		  stmt.executeUpdate(str);
+	}
+	
 
 }
