@@ -8,12 +8,12 @@ public class Requisicao {
 
     private static int proxID = 1;
     private int IDrequisicao;
-    private Produto produto;
+    private ProdutoEmEstoque produto;
     private int qtdeNecessaria;
     private int qtdeDisponivel; //consideranto apenas qtdes inteiras
     private float valorUnitario, valorFrete;
     private Date dataEmbarque, dataEntrega;
-    private String nomeFornecedor;
+    private int nomeFornecedor;
     private String status = "Status ainda não definido";
 
     private static ArrayList<Requisicao> listaDeRequisicoes;
@@ -22,7 +22,7 @@ public class Requisicao {
         System.out.println("Requisicao criada");
     }
     
-    public Requisicao(Produto produto, int quantidade){
+    public Requisicao(ProdutoEmEstoque produto, int quantidade){
         this.IDrequisicao = proxID++;
         this.produto = produto;
         this.qtdeNecessaria = quantidade;
@@ -55,19 +55,19 @@ public class Requisicao {
         ReposicaoDeEstoque.verificaMelhorOpcao(arrayRequisicoes);
     }
     
-    public Produto getProduto() {
+    public ProdutoEmEstoque getProduto() {
         return produto;
     }
 
-    public void setProduto(Produto produto) {
+    public void setProduto(ProdutoEmEstoque produto) {
         this.produto = produto;
     }
     
-    public String getNomeFornecedor() {
+    public int getNomeFornecedor() {
         return nomeFornecedor;
     }
 
-    public void setNomeFornecedor(String nomeFornecedor) {
+    public void setNomeFornecedor(int nomeFornecedor) {
         this.nomeFornecedor = nomeFornecedor;
     }
 

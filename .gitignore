@@ -27,3 +27,4 @@ hs_err_pid*
 nbproject/private/private.properties
 
 /bin/
+/nbproject/private/

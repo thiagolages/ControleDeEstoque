@@ -108,20 +108,51 @@ public class ReposicaoDeEstoque {
         return qtdeProdutos*req.getValorUnitario() + req.getValorFrete();
         
     }
+    
+    public static void analisaLicitacao(Requisicao[] reqs) {
+        
+        float menorPreco = 100000000.f;
+        int indexMenorPreco = -1;
+        for (int i = 0; i < reqs.length; i++){
+            float valorTotal = calculaValorTotal(reqs[i]);
+            if (valorTotal < menorPreco){
+                menorPreco = valorTotal;
+                indexMenorPreco = i;
+            }
+        }
+        fechaLicitacao(reqs[indexMenorPreco]);
+        
+    }
 
     private static void abreLicitacao(Requisicao req) {
        //Lucas
        //Lembrar de pegar o nome do produto a partir da requisicao, e quantidadeNecessaria
+        System.out.println("ABRE TELAS PARA PEGAR OFERTAS DE FORNECEDORES");
+        req.setStatus("Licitação Solicitada");
         
-        System.out.println("FAZ NADA ROGERIN");
     }
+    
+    private static void fechaLicitacao(Requisicao req) {
+        //Lucas
+        //Lembrar de pegar o nome do produto a partir da requisicao, e quantidadeNecessaria
+         System.out.println("ABRE TELA PRA COMPRA COMLETA COMPLETA");
+         req.setStatus("Compra Realizada");
+         int qtTransf = req.getQtdeDisponivel();
+         Unidade recebe = new Unidade(1);
+         recebe.atualizaProduto(req.getProduto(), qtTransf);
+         
+     }
 
     private static void fazerTransferenciaCompleta(Requisicao reqFinal) {
         //Thiago
         System.out.println("ABRE TELA PRA TRANSFERENCIA COMPLETA");
         reqFinal.setStatus("TransferÃªncia Solicitada.");
         //criar tela para exibir botoes de aceitar/recusar para vendedor?
-
+        int qtTransf = reqFinal.getQtdeDisponivel();
+        Unidade recebe = new Unidade(1);
+        Unidade transfer = new Unidade(reqFinal.getNomeFornecedor());
+        recebe.atualizaProduto(reqFinal.getProduto(), qtTransf);
+        transfer.atualizaProduto(reqFinal.getProduto(), (-1) * qtTransf);
         //new statusPedido(reqFinal.getStatus());
 
     }
@@ -132,6 +163,11 @@ public class ReposicaoDeEstoque {
         //criar tela para exibir botoes de aceitar/recusar para vendedor?
         System.out.println("ABRE TELA PRA TRANSFERENCIA PARCIAL");
         int qtdeFaltante = reqParcial.getQtdeNecessaria() - reqParcial.getQtdeDisponivel();
+        int qtTransf = reqParcial.getQtdeDisponivel();
+        Unidade recebe = new Unidade(1);
+        Unidade transfer = new Unidade(reqParcial.getNomeFornecedor());
+        recebe.atualizaProduto(reqParcial.getProduto(), qtTransf);
+        transfer.atualizaProduto(reqParcial.getProduto(), (-1) * qtTransf);
         //SERA NECESSARIO CRIAR UMA NOVA REQUISICAO COM UM NOVO VALOR NECESSARIO (FALTANTE)
         Requisicao reqNova = new Requisicao(reqParcial.getProduto(), qtdeFaltante);
         System.out.println("ABRE TELA PRA LICITACAO");
