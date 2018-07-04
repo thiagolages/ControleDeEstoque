@@ -5,12 +5,15 @@
  */
 package userInterface;
 
+import tpfinal.Unidade;
+
 import java.util.ArrayList;
 import javax.swing.Box;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JRadioButton;
 import javax.swing.table.DefaultTableModel;
 import tpfinal.Produto;
+import tpfinal.ProdutoEmEstoque;
 
 /**
  *
@@ -50,14 +53,17 @@ public class verificaEstoque extends javax.swing.JFrame {
 //        
 //        APOS IMPLEMENTAR BANCO DE DADOS
         
-
+    	Unidade un = new Unidade(1);
+    	ArrayList<ProdutoEmEstoque> lista = un.getProductNeeded();
+        ProdutoEmEstoque[] arr = lista.toArray(new ProdutoEmEstoque[lista.size()]);
         /* SIZE OF PRODUTOS ESGOTADOS*/
-        modifProduto prod[] = new modifProduto[10];
-        for(int i = 0; i < 10; i++){
+        modifProduto prod[] = new modifProduto[lista.size()];
+        for(int i = 0; i < lista.size(); i++){
             
             //prod[i]= new Produto(getCodigo, getName, getQuant, getPreco);
-            Produto produtinho = new Produto(i, "Produto "+i, "Modelo "+i, "Fabricante "+i);
-            prod[i] = new modifProduto(produtinho, i*20);
+        	
+            Produto produtinho = new Produto(arr[i].getCodigo(),arr[i].getDescricao(),arr[i].getModelo() ,arr[i].getFabricante() );
+            prod[i] = new modifProduto(produtinho, arr[i].getFaltante());
             list.add(prod[i]);
         }
         return list;
@@ -84,10 +90,10 @@ public class verificaEstoque extends javax.swing.JFrame {
         
         ArrayList<modifProduto> list = listaEsgotados();
         /* SIZE OF PRODUTOS ESGOTADOS*/
-        String[] produtos = new String[10];   
+        String[] produtos = new String[list.size()];   
         
         /* SIZE OF PRODUTOS ESGOTADOS*/
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < list.size(); i++) {
                 produtos[i] = list.get(i).prodz.getDescricao();
         }       
         
@@ -218,7 +224,7 @@ public class verificaEstoque extends javax.swing.JFrame {
         for (int i = 0; i < 10; i++){
             if (produto.equals(list.get(i).prodz.getDescricao())){
                 formRequisicao requis;
-                requis = new formRequisicao(list.get(i).prodz, 100-list.get(i).quantidade);
+                requis = new formRequisicao(list.get(i).prodz, list.get(i).quantidade);
                 requis.setVisible(true);
                 dispose();
             }

@@ -12,7 +12,7 @@ public class TPFinal {
         new mainMenu();
         Unidade un = new Unidade(2);
         List<ProdutoEmEstoque> list = un.likeSearch("Alimento");
-        //ProdutoEmEstoque[] arr = list.toArray(new ProdutoEmEstoque[list.size()]);
-        //un.atualizaProduto(arr[0], 1);
+        ProdutoEmEstoque[] arr = list.toArray(new ProdutoEmEstoque[list.size()]);
+        un.atualizaProduto(arr[0], 1);
     }    
 }

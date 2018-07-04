@@ -89,10 +89,10 @@ public class Unidade
 	 
 	}
     
-	 public List<ProdutoEmEstoque> getProductNeeded()
+	 public ArrayList<ProdutoEmEstoque> getProductNeeded()
 	 {
 		 ResultSet rs = null;
-		 List<ProdutoEmEstoque> list = new ArrayList<ProdutoEmEstoque>();
+		 ArrayList<ProdutoEmEstoque> list = new ArrayList<ProdutoEmEstoque>();
 		 ProdutoEmEstoque aux;
 		 Database.connectDatabase();
 		 try
@@ -162,16 +162,23 @@ public class Unidade
 		 }
 	 }
 	
-	 public void atualizaProduto(ProdutoEmEstoque prod, int qt)
+	 public void atualizaProduto(Produto prod, int qt)
 	 {
+		 ResultSet rs = null;
 		 Database.connectDatabase();
-		 int novaQt = qt+ prod.getQuantidade();
+		 int novaqt = qt;
 		 try
 		 {
-			 Database.update
+			rs = Database.query("SELECT quantity FROM UnityProducts WHERE productID = " + prod.getCodigo() +  " AND unityID = " + this.id);
+			if(rs.next())
+			{
+				int oldqt = rs.getInt("quantity");
+				novaqt += oldqt;
+			}
+			Database.update
 			 (
 				  "UPDATE UnityProducts"
-				 +" SET quantity = " + novaQt
+				 +" SET quantity = " + novaqt
 				 +" WHERE productID = " + prod.getCodigo()
 				 +" AND unityID = " + this.id
 			);
